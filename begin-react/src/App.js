@@ -15,7 +15,7 @@ function App() {
   return (
     <Wrapper>
       <Hello/>
-      <Hello name= "react" color="red"/>
+      <Hello name= "react" color="red" isSpecial/>
       <div style= {style}>React</div>
       <div className = 'gray-box'></div> 
 
