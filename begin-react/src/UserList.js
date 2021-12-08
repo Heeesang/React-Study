@@ -10,25 +10,7 @@ function User({user}){
 
 
 
-function UserList(){
-    const users = [
-        {
-            id: 1,
-            username: '노',
-            email: 'dasdaad@gsm.hs.kr'
-        },
-        {
-            id: 2,
-            username: '곽',
-            email: 'zmdas@gmail.com'
-        },
-        {
-            id: 3,
-            username: '진',
-            email: 'lwladl@naver.com'
-        }
-    ];
-
+function UserList({ users }){
     return (
         <div>
             {
