@@ -19,6 +19,16 @@ const TodoInsert = ({ onInsert }) => {
     [onInsert, value]
   );
 
+  const onSubmit = useCallback(
+    (e) => {
+      onInsert(value);
+      setValue("");
+
+      e.preventDefault();
+    },
+    [onInsert, value]
+  );
+
   return (
     <form className="TodoInsert" onSubmit={onSubmit}>
       <input
