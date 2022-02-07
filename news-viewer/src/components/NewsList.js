@@ -15,14 +15,6 @@ const NewsListBlock = styled.div`
         padding-right: 1rem;
     }
 `
-
-const sampleArticle = {
-    title: '제목',
-    description: '내용',
-    url: 'https://google.com',
-    urlToImage: 'https://via.placeholder.com/160',
-};
-
 /* 
     useEffect에서 반환해야 하는 값은 뒷정리 함수이기 때문에
     useEffect에 등록하는 함수에 async를 붙이면 안 된다.
@@ -30,7 +22,7 @@ const sampleArticle = {
     async 키워드가 붙은 또 다른 함수를 만들어서 사용해 주어야 한다.
 */
 
-const NewsList = () => {
+const NewsList = ({ category }) => {
     const [articles, setArticles] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -38,8 +30,9 @@ const NewsList = () => {
         const fetchData = async () => {
             setLoading(true);
             try {
+                const query = category ==='all' ? '':`&category=${category}`;
                 const response = await axios.get(
-                    "https://newsapi.org/v2/top-headlines?country=kr&apiKey=8c2b21fee8234e1b802c9913d32508e1",
+                    `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=8c2b21fee8234e1b802c9913d32508e1`,
                 );
                 setArticles(response.data.articles);
             }catch(e){
@@ -48,7 +41,7 @@ const NewsList = () => {
             setLoading(false);
         };
         fetchData();
-    }, []);
+    }, [category]);
 
     //댜가 중일 때
     if(loading) {
