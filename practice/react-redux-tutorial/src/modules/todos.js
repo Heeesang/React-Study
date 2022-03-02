@@ -9,12 +9,12 @@ export const change_input = input => ({
 });
 
 let id = 3;
-export const insert = id => ({
+export const insert = text => ({
     type:INSERT,
     todo: {
         id: id++,
         text,
-        done: false, 
+        done: false 
     }
 });
 
