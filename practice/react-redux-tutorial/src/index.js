@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import './index.css';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
 import rootReducer from './modules';
 
 
@@ -19,5 +18,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root'),
 );
-serviceWorker.unregister();
 
